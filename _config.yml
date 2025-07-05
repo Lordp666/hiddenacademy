@@ -1,0 +1,12 @@
+title: Hidden Security Academy
+
+plugins:
+  - jekyll-assets
+  - jekyll-paginate
+
+paginate: 6
+paginate_path: "/blog/page:num"
+
+# 🔥 Obligatoire pour GitHub Pages quand tu n'utilises pas un domaine personnalisé
+baseurl: "/hiddenacademy"       # <- SANS slash à la fin
+url: "https://lordp666.github.io"  # <- Ton profil GitHub Pages

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title }}</title>
+  <meta name="description" content="HiddenAcademy : Formations et CTF pour apprendre la cybersécurité offensive et Linux." />
+  <meta name="author" content="HiddenAcademy" />
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="HiddenAcademy – Cybersécurité & Formations" />
+  <meta property="og:description" content="Apprends le hacking éthique, les bases Linux et les CTFs depuis une seule plateforme." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hiddenacademy.com" />
+  <meta property="og:image" content="https://hiddenacademy.com/assets/img/og-image.png" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css" />
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/ctf.css" />
+  <link rel="icon" href="{{ site.baseurl }}/assets/img/favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+  {% unless page.hide_nav %}{% include navbar.html %}{% endunless %}
+  <main>{{ content }}</main>
+
+  <!-- JS Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/ctf.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/filters.js"></script>
+
+  {% include footer.html %}
+</body>
+</html>

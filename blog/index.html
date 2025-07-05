@@ -1,0 +1,128 @@
+---
+layout: default
+title: "Blog Hidden Security"
+permalink: /blog.html
+pagination:
+  enabled: true
+---
+
+<section class="blog-hero"> 
+  <div class="container">
+    <h1>BLOG HIDDEN SECURITY</h1>
+    <p class="subtitle">Actualités, tutoriels et analyses de sécurité offensive</p>
+  </div>
+</section>
+
+<section class="blog-main">
+  <div class="container">
+
+    <!-- Contrôles de recherche et filtres -->
+    <div class="blog-controls">
+      <div class="search-box">
+        <input type="text" placeholder="Rechercher un article..." id="search-input">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      <div class="blog-filters">
+        <span>Catégories :</span>
+        <a href="#" class="filter-btn active" data-category="all">Tous</a>
+        <a href="#" class="filter-btn" data-category="news">Actualités</a>
+        <a href="#" class="filter-btn" data-category="tutorial">Tutoriels</a>
+        <a href="#" class="filter-btn" data-category="writeup">Write-ups</a>
+        <a href="#" class="filter-btn" data-category="interview">Interviews</a>
+      </div>
+    </div>
+
+    <!-- Grille d'articles dynamique -->
+    <div class="articles-grid">
+      {% for post in paginator.posts %}
+      <article class="article-card" data-category="{{ post.categories | first }}">
+        <div class="article-badge {{ post.categories | first }}">{{ post.categories | first | capitalize }}</div>
+        <img src="{{ site.baseurl }}{{ post.image }}" alt="Image de l’article" class="article-image">
+        <div class="article-content">
+          <div class="article-meta">
+            <span><i class="far fa-calendar"></i> {{ post.date | date: "%-d %B %Y" }}</span>
+            <span><i class="far fa-comment"></i> {{ post.comments }}</span>
+          </div>
+          <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+          <p>{{ post.excerpt | strip_html | truncate: 180 }}</p>
+          <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Lire la suite <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      {% if paginator.previous_page %}
+        <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="prev"><i class="fas fa-chevron-left"></i> Précédent</a>
+      {% endif %}
+      <div class="page-numbers">
+        {% for page in (1..paginator.total_pages) %}
+          {% if page == paginator.page %}
+            <a href="#" class="active">{{ page }}</a>
+          {% else %}
+            <a href="{{ site.baseurl }}{{ paginator.paginate_path | replace: ':num', page }}">{{ page }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% if paginator.next_page %}
+        <a href="{{ site.baseurl }}{{ paginator.next_page_path }}" class="next">Suivant <i class="fas fa-chevron-right"></i></a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="container">
+    <div class="newsletter-box">
+      <h3>📬 Abonnez-vous à notre newsletter</h3>
+      <p>Recevez nos derniers articles, write-ups et ressources exclusives directement dans votre boîte mail.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Votre email" required>
+        <button type="submit">S'abonner <i class="fas fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- JS filtres + recherche -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const searchInput = document.getElementById("search-input");
+    const articles = document.querySelectorAll(".article-card");
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        filterButtons.forEach((b) => b.classList.remove("active"));
+        this.classList.add("active");
+        const category = this.getAttribute("data-category");
+
+        articles.forEach((article) => {
+          const matchesCategory = category === "all" || article.dataset.category === category;
+          const query = searchInput.value.toLowerCase();
+          const title = article.querySelector("h2").innerText.toLowerCase();
+          const excerpt = article.querySelector("p").innerText.toLowerCase();
+          const matchesSearch = title.includes(query) || excerpt.includes(query);
+
+          article.style.display = (matchesCategory && matchesSearch) ? "block" : "none";
+        });
+      });
+    });
+
+    searchInput.addEventListener("input", function () {
+      const query = this.value.toLowerCase();
+      const activeCategory = document.querySelector(".filter-btn.active").getAttribute("data-category");
+
+      articles.forEach((article) => {
+        const title = article.querySelector("h2").innerText.toLowerCase();
+        const excerpt = article.querySelector("p").innerText.toLowerCase();
+        const matchesSearch = title.includes(query) || excerpt.includes(query);
+        const matchesCategory = activeCategory === "all" || article.dataset.category === activeCategory;
+
+        article.style.display = (matchesCategory && matchesSearch) ? "block" : "none";
+      });
+    });
+  });
+</script>

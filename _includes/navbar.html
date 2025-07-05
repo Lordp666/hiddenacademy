@@ -1,0 +1,29 @@
+<nav class="main-nav">
+  <div class="nav-container">
+    {% assign current = page.url | downcase | split: '/' %}
+
+    <a class="nav-link {% if page.url == site.baseurl or page.url == site.baseurl | append: '/' %}active{% endif %}" href="{{ site.baseurl }}/">
+      <i class="fas fa-home me-1"></i> Accueil
+    </a>
+
+    <a class="nav-link {% if current[1] == 'formations.html' or current[1] == 'formations' %}active{% endif %}" href="{{ site.baseurl }}/formations.html">
+      <i class="fas fa-graduation-cap me-1"></i> Formations
+    </a>
+
+    <a class="nav-link {% if current[1] == 'ctf.html' or current[1] == 'ctf' %}active{% endif %}" href="{{ site.baseurl }}/ctf.html">
+      <i class="fas fa-flag me-1"></i> CTF
+    </a>
+
+    <a class="nav-link {% if current[1] == 'blog.html' or current[1] == 'blog' %}active{% endif %}" href="{{ site.baseurl }}/blog.html">
+      <i class="fas fa-blog me-1"></i> Blog
+    </a>
+
+    <a class="nav-link {% if current[1] == 'about.html' or current[1] == 'about' %}active{% endif %}" href="{{ site.baseurl }}/about.html">
+      <i class="fas fa-info-circle me-1"></i> À propos
+    </a>
+
+    <a class="nav-link {% if current[1] == 'contact.html' or current[1] == 'contact' %}active{% endif %}" href="{{ site.baseurl }}/contact.html">
+      <i class="fas fa-envelope me-1"></i> Contact
+    </a>
+  </div>
+</nav>

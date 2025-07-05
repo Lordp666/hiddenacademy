@@ -1,0 +1,87 @@
+---
+layout: default
+title: "CTF Challenges"
+permalink: /ctf.html
+---
+
+<section class="hero">
+  <div class="container">
+    <h1>HIDDEN SECURITY ACADEMY CTF</h1>
+    <p>Testez vos compétences avec nos challenges de capture de drapeau</p>
+  </div>
+</section>
+
+<section class="platform">
+  <div class="container platform-content">
+    <div class="text">
+      <h2>Notre Plateforme CTF</h2>
+      <p>Accédez à notre environnement CTF complet hébergé sur CTFd avec des challenges variés et progressifs.</p>
+      <ul>
+        <li>✔ Challenges mis à jour régulièrement</li>
+        <li>✔ Catégories multiples : Web, Crypto, Reverse, Pwn, Forensic</li>
+        <li>✔ Système de scoring et classement</li>
+        <li>✔ Environnement isolé et sécurisé</li>
+      </ul>
+      <a href="http://192.168.0.101:8000/login" target="_blank" rel="noopener noreferrer" class="btn">Accéder à la plateforme</a>
+    </div>
+    <div class="image">
+      <img src="{{ site.baseurl }}/assets/images/ctf-platform-screenshot.png" alt="Capture d'écran de la plateforme CTF" />
+    </div>
+  </div>
+</section>
+
+<section class="categories">
+  <div class="container">
+    <h2>Catégories de Challenges</h2>
+    <div class="cards">
+      <div class="card web">
+        <div class="icon">🌐</div>
+        <h3>Sécurité Web</h3>
+        <p>XSS, SQLi, CSRF, JWT et vulnérabilités modernes</p>
+        <span>12 challenges</span>
+      </div>
+      <div class="card crypto">
+        <div class="icon">🔒</div>
+        <h3>Cryptographie</h3>
+        <p>Algorithmes classiques et cryptanalyse moderne</p>
+        <span>8 challenges</span>
+      </div>
+      <div class="card reverse">
+        <div class="icon">🐞</div>
+        <h3>Reverse Engineering</h3>
+        <p>Analyse de binaires et techniques de reverse</p>
+        <span>10 challenges</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ctf-events">
+  <div class="container">
+    <h2>Événements CTF à Venir</h2>
+    <div class="event-timeline">
+      {% for event in site.data.events %}
+        <div class="event-item 
+          {% if event.label contains 'Novice' %}
+            event-novice
+          {% elsif event.label contains 'Avancé' %}
+            event-advanced
+          {% else %}
+            event-intermediate
+          {% endif %}
+        ">
+          <div class="event-date {{ event.badge_class }}">
+            {{ event.date }}
+            <span class="event-level">{{ event.level }}</span>
+          </div>
+
+          <div class="event-content">
+            <h3>{{ event.label }}</h3>
+            <p>{{ event.description }}</p>
+            <a href="http://192.168.0.101:8000/login" class="btn-ctf">S'inscrire →</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

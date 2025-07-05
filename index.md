@@ -1,0 +1,229 @@
+---
+layout: default
+title: "Accueil"
+hide_nav: true  # <-- Cette ligne magique !
+permalink: /
+---
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <!-- CSS Externes -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <!-- CSS Personnalisé -->
+    <style>
+        :root {
+            --primary-color: #d63384;
+            --secondary-color: #6f42c1;
+            --dark-color: #1a1a2e;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #212529;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 2rem 0 6rem 0;
+            text-align: center;
+            background-size: 200% 200%;
+            animation: gradientBG 10s ease infinite;
+            position: relative;
+        }
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        .brand-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+        .brand-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .brand-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .main-nav {
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 0.8rem 2rem;
+            display: inline-flex;
+            margin: 1.5rem auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .main-nav .nav-link {
+            color: rgba(255,255,255,0.9);
+            padding: 0.5rem 1.2rem;
+            margin: 0 0.3rem;
+            font-weight: 500;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        .main-nav .nav-link:hover,
+        .main-nav .nav-link:focus {
+            color: white;
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+        .main-nav .nav-link.active {
+            background: white;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        .btn-academy {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 0.8rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .btn-academy:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .features {
+            padding: 5rem 0;
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        .feature-card {
+            height: 100%;
+            transition: transform 0.3s;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 0.8rem;
+            }
+            .main-nav .nav-link {
+                padding: 0.5rem 0.8rem;
+                margin: 0.2rem;
+                font-size: 0.9rem;
+            }
+            .brand-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Section Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="brand-header">
+                <h1 class="brand-title">HIDDEN SECURITY ACADEMY</h1>
+                <p class="brand-subtitle">L'excellence dans la formation en cybersécurité offensive et défensive</p>
+            </div>
+
+            <nav class="main-nav">
+                <a class="nav-link active" href="{{ site.baseurl }}/"><i class="fas fa-home me-1"></i> Accueil</a>
+                <a class="nav-link" href="{{ site.baseurl }}/formations.html"><i class="fas fa-graduation-cap me-1"></i> Formations</a>
+                <a class="nav-link" href="{{ site.baseurl }}/ctf.html"><i class="fas fa-flag me-1"></i> CTF</a>
+                <a class="nav-link" href="{{ site.baseurl }}/blog.html"><i class="fas fa-blog me-1"></i> Blog</a>
+                <a class="nav-link" href="{{ site.baseurl }}/about.html"><i class="fas fa-info-circle me-1"></i> À propos</a>
+                <a class="nav-link" href="{{ site.baseurl }}/contact.html"><i class="fas fa-envelope me-1"></i> Contact</a>
+            </nav>
+
+            <div class="hero-content mt-4">
+                <h2 class="h3 mb-4">Débloquez votre potentiel en cybersécurité</h2>
+                <div class="d-flex justify-content-center">
+                    <a href="{{ site.baseurl }}/formations.html" class="btn btn-academy">
+                        <i class="fas fa-arrow-right me-2"></i>Commencer la formation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Features -->
+    <section class="features">
+        <div class="container">
+            <h2 class="text-center section-title">Notre Offre Pédagogique</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card feature-card p-4 shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-laptop-code feature-icon"></i>
+                            <h3 class="h4">Parcours Certifiants</h3>
+                            <p class="mb-4">Formations complètes avec labs interactifs : Pentest, Forensic, Sécurité Web, Malware Analysis</p>
+                            <a href="{{ site.baseurl }}/formations.html" class="btn btn-sm btn-outline-primary">Explorer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card p-4 shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-shield-alt feature-icon"></i>
+                            <h3 class="h4">Environnement CTF</h3>
+                            <p class="mb-4">Plateforme compétitive avec challenges progressifs et scénarios réalistes</p>
+                            <a href="{{ site.baseurl }}/ctf.html" class="btn btn-sm btn-outline-primary">Démarrer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card p-4 shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-project-diagram feature-icon"></i>
+                            <h3 class="h4">Cas Réels</h3>
+                            <p class="mb-4">Mises en situation professionnelles et projets concrets pour votre portfolio</p>
+                            <a href="{{ site.baseurl }}/projects.html" class="btn btn-sm btn-outline-primary">Découvrir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

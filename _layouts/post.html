@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+<article class="single-post">
+  <div class="container">
+
+    <!-- Bannière article -->
+    <header class="post-header">
+      <span class="post-category {{ page.categories | first }}">
+        {{ page.categories | first | capitalize }}
+      </span>
+      <h1 class="post-title">{{ page.title }}</h1>
+      <div class="post-meta">
+        <i class="far fa-calendar"></i> {{ page.date | date: "%-d %B %Y" }}
+      </div>
+    </header>
+
+    <!-- Image en haut si présente -->
+    {% if page.image %}
+    <div class="post-image">
+      <img src="{{ site.baseurl }}{{ page.image }}" alt="{{ page.title }}">
+    </div>
+    {% endif %}
+
+    <!-- Contenu principal -->
+    <div class="post-content">
+      {{ content }}
+    </div>
+
+    <!-- Navigation articles -->
+    <nav class="post-navigation">
+      {% if page.previous %}
+        <a href="{{ site.baseurl }}{{ page.previous.url }}" class="prev-post">
+          ← Article précédent<br><strong>{{ page.previous.title }}</strong>
+        </a>
+      {% endif %}
+      {% if page.next %}
+        <a href="{{ site.baseurl }}{{ page.next.url }}" class="next-post">
+          Article suivant →<br><strong>{{ page.next.title }}</strong>
+        </a>
+      {% endif %}
+    </nav>
+
+  </div>
+</article>

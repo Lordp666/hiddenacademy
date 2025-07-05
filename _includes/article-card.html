@@ -1,0 +1,10 @@
+<div class="card mb-4 shadow-sm course-card" data-level="{{ page.level | downcase }}" data-duration="{{ page.duration }}">
+  <div class="card-body">
+    <h5 class="card-title">{{ page.title }}</h5>
+    <p class="card-text">
+      <strong>Niveau :</strong> {{ page.level }}<br>
+      <strong>Durée :</strong> {{ page.duration }}
+    </p>
+    <a href="{{ page.url }}" class="btn btn-sm btn-outline-primary">Lire</a>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<!-- Waves Container -->
+<div>
+  <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+       viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+      <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+      <use xlink:href="#gentle-wave" x="48" y="0" fill="#d63384" />
+      <use xlink:href="#gentle-wave" x="48" y="3" fill="#c12e7a" />
+      <use xlink:href="#gentle-wave" x="48" y="5" fill="#a32667" />
+      <use xlink:href="#gentle-wave" x="48" y="7" fill="#6f42c1" />
+    </g>
+  </svg>
+</div>
+<!-- Waves end -->
+
+<!-- Footer principal -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <p>&copy; {{ site.time | date: '%Y' }} HiddenAcademy. Tous droits réservés.</p>
+  </div>
+</footer>

@@ -1,0 +1,12 @@
+<div class="event-timeline">
+  {% for event in site.data.events %}
+    <div class="event-item">
+      <div class="event-date {{ event.badge_class }}">{{ event.date }}</div>
+      <div class="event-content">
+        <h3>{{ event.label }}</h3>
+        <p>{{ event.description }}</p>
+        <a href="{{ event.link }}" class="btn btn-sm btn-outline-secondary">S'inscrire</a>
+      </div>
+    </div>
+  {% endfor %}
+</div>

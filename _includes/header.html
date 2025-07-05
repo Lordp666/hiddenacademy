@@ -1,0 +1,40 @@
+<header>
+  <div class="container">
+    <h1>Hidden Security Academy</h1>
+    <nav>
+      <ul>
+        {% assign current = page.url | downcase | split: '/' %}
+        <li>
+          <a href="{{ site.baseurl }}/" class="{% if page.url == site.baseurl or page.url == site.baseurl | append: '/' %}active{% endif %}">
+            <i class="fas fa-home"></i> Accueil
+          </a>
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/formations.html" class="{% if current[1] == 'formations.html' or current[1] == 'formations' %}active{% endif %}">
+            <i class="fas fa-book"></i> Cours
+          </a>
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/ctf.html" class="{% if current[1] == 'ctf.html' or current[1] == 'ctf' %}active{% endif %}">
+            <i class="fas fa-gamepad"></i> CTF
+          </a>
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/blog.html" class="{% if current[1] == 'blog.html' or current[1] == 'blog' %}active{% endif %}">
+            <i class="fas fa-blog"></i> Blog
+          </a>
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/about.html" class="{% if current[1] == 'about.html' or current[1] == 'about' %}active{% endif %}">
+            <i class="fas fa-info-circle"></i> À propos
+          </a>
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/contact.html" class="{% if current[1] == 'contact.html' or current[1] == 'contact' %}active{% endif %}">
+            <i class="fas fa-envelope"></i> Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
