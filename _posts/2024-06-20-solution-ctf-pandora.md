@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Solution du CTF HackTheBox - Pandora"
+title: "Solution Pandora"
 date: 2024-06-25
 categories: writeup
 image: /assets/images/blog1.jpg
