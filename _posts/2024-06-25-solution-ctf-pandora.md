@@ -11,6 +11,6 @@ Ceci est un test pour vérifier que les articles s’affichent dans la page blog
 
 ## 🔍 Étapes
 - Crée un fichier avec ce contenu
-- Place-le dans `_posts/`
-- Redémarre Jekyll
+- Place-le dans `hell/`
+- Redémarre pc
 - Va sur 
